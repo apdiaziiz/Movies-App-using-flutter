@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../homePage.dart';
 import 'footer.dart';
 
 class UserProfile extends StatelessWidget {
@@ -18,21 +19,32 @@ class UserProfile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // BAKC TO HOMEPAHE EVENT
                     InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (context) {
+                              return HomePage();
+                            }), (route) {
+                          return false;
+                        });
                       },
+                      // BACKWARD ARROW ICON
                       child: Icon(Icons.arrow_back,color: Colors.white,),
                     )
                   ],
                 ),
               ),
+
+                // USER PROFILE SECTION
+
                 Container(
                   width: 500,
                   padding: EdgeInsets.only(left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      // PROFILE USER IMAGE
                       ClipRRect(
                         borderRadius: BorderRadius.circular(30),
                         child: Image.asset("images/profile.jpeg",
@@ -40,6 +52,7 @@ class UserProfile extends StatelessWidget {
                           width: 100,),
                       ),
                       SizedBox(height: 30,),
+                      // PROFILE USER NAME
                       Text("Abdiaziz Aqani",
                         style: TextStyle(
                             color: Colors.white,
@@ -47,6 +60,7 @@ class UserProfile extends StatelessWidget {
                             fontWeight: FontWeight.w500
                         ),),
                       SizedBox(height: 20,),
+                        // WATCH LIST SECTION
                         Container(
                           //padding: EdgeInsets.all(0),
                           child: Column(
@@ -56,6 +70,7 @@ class UserProfile extends StatelessWidget {
                                 padding: EdgeInsets.symmetric(horizontal: 10),
                                 child: Row(
                                   children: [
+                                    // WATCH LIST TITLE
                                     Text("Watch List",
                                       style: const TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600),),
                                     SizedBox(height: 15,),
@@ -63,6 +78,7 @@ class UserProfile extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 15,),
+                              // WATCH LIST MOVIES
                               SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
@@ -94,6 +110,7 @@ class UserProfile extends StatelessWidget {
           ),
         ),
       ),
+      // CUSTOM FOOTER
       bottomNavigationBar: CustomNavBar(),
     );
   }

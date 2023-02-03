@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:som_movies/description.dart';
 
+// TRENDING MOVIES CLASS
 class TrendingMovies extends StatelessWidget {
   final List trending;
 
@@ -13,13 +14,17 @@ class TrendingMovies extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Trending Movies"),
+          // TRENDING MOVIE TITLE
+          Text("Trending Movies",
+            style: const TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w600),),
           SizedBox(height: 15,),
+          // TRENDING CARDS
           Container(
             height: 200,
             child: ListView.builder(itemCount: trending.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index){
+                  // TRENDING EVENT HANDLER
                   return InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Description(name: trending[index]['title'],
@@ -29,6 +34,7 @@ class TrendingMovies extends StatelessWidget {
                           vote: trending[index]['vote_average'].toString(),
                           lounchOn: trending[index]['release_date'],)));
                     },
+                    // TRENDING COVER IMAGE
                     child: Container(
                       width: 140,
                       child: Column(

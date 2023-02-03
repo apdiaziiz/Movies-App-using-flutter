@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// HEADER CLASS
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({Key? key}) : super(key: key);
 
@@ -22,6 +23,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                   Column(
                     //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // APP TITLE
                       Text('TMDB Movies',
                       style: TextStyle(
                           fontSize: 25,
@@ -31,6 +33,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ],
                   ),
+                  // USER PROFILE IMAGE
                   ClipRRect(
                     borderRadius: BorderRadius.circular(30),
                     child: Image.asset("images/profile.jpeg",
@@ -46,6 +49,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
+  // HEADER HEIGHT
   @override
   // TODO: implement preferredSize
   Size get preferredSize => const Size(
